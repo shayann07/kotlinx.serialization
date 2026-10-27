@@ -36,7 +36,7 @@ internal inline fun <T> JsonEncoder.encodePolymorphically(
         val casted = serializer as AbstractPolymorphicSerializer<Any>
         requireNotNull(value) { "Value for serializer ${serializer.descriptor} should always be non-null. Please report issue to the kotlinx.serialization tracker." }
         val actual = casted.findPolymorphicSerializerOrNull(this, value) ?: throw run {
-            val subClassName = value::class.simpleName ?: value::class.toString()
+            val subClassName = value::class.qualifiedOrSimpleName()
             val (message, hint) = subtypeNotRegisteredMessageJson(subClassName, casted.baseClass)
             JsonEncodingException(message, subClassName, hint)
         }

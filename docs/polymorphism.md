@@ -124,9 +124,9 @@ fun main() {
 This is close to the best design for a serializable hierarchy of classes, but running it produces the following error:
 
 ```text 
-Exception in thread "main" kotlinx.serialization.json.JsonEncodingException: Serializer for subclass 'OwnedProject' is not found in the polymorphic scope of 'Project'
-Check if class with serial name 'OwnedProject' exists and serializer is registered in a corresponding SerializersModule.
-To be registered automatically, class 'OwnedProject' has to be '@Serializable', and the base class 'Project' has to be sealed and '@Serializable'.
+Exception in thread "main" kotlinx.serialization.json.JsonEncodingException: Serializer for subclass 'example.examplePoly03.OwnedProject' is not found in the polymorphic scope of 'Project'
+Check if class with serial name 'example.examplePoly03.OwnedProject' exists and serializer is registered in a corresponding SerializersModule.
+To be registered automatically, class 'example.examplePoly03.OwnedProject' has to be '@Serializable', and the base class 'Project' has to be sealed and '@Serializable'.
 ```         
 
 <!--- TEST LINES_START -->
